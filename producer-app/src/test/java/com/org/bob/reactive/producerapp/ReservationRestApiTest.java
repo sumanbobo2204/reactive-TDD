@@ -32,6 +32,7 @@ public class ReservationRestApiTest {
     @Test
     public void getAllReservationsViaRestCall() throws Exception {
 
+        //Mockito stub for the repo ::
         Mockito.when(this.reservationRepository.findAll())
                 .thenReturn(Flux.just(new Reservation("1","A"),
                                         new Reservation("2", "B")));
