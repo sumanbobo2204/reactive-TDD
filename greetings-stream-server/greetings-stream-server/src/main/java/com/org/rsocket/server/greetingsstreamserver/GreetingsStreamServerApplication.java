@@ -3,6 +3,7 @@ package com.org.rsocket.server.greetingsstreamserver;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.var;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -52,8 +53,8 @@ class RsocketSecurityConfiguration {
 
     @Bean
     MapReactiveUserDetailsService authentication() {
-        UserDetails bob = User.withDefaultPasswordEncoder().username("bob").password("bob").roles("USER", "ADMIN").build();
-        UserDetails jlong = User.withDefaultPasswordEncoder().username("jlong").password("jlong").roles("USER").build();
+        var bob = User.withDefaultPasswordEncoder().username("bob").password("bob").roles("USER", "ADMIN").build();
+        var jlong = User.withDefaultPasswordEncoder().username("jlong").password("jlong").roles("USER").build();
         return new MapReactiveUserDetailsService(bob, jlong);
     }
 
